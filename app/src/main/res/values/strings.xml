@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My App</string>
+
+    <!-- Array de cadenas que define las opciones de idioma disponibles en la aplicación -->
+    <string-array name="idiomas">
+        <!-- Elemento de lista para seleccionar el idioma Español -->
+        <item>Español</item>
+        <!-- Elemento de lista para seleccionar el idioma Inglés -->
+        <item>Inglés</item>
+    </string-array>
+</resources>

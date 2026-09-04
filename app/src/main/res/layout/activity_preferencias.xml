@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contenedor principal de tipo ConstraintLayout para la pantalla de Preferencias -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PreferenciasActivity">
+
+    <!-- Título de la pantalla centrado horizontalmente en la parte superior -->
+    <TextView
+        android:id="@+id/txtTituloPreferencias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Preferencias"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- LinearLayout con orientación vertical y ancho completo posicionado debajo del título -->
+    <LinearLayout
+        android:id="@+id/linearLayoutPreferencias"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTituloPreferencias">
+
+        <!-- Switch con id swNotificaciones para activar o desactivar la opción de recibir notificaciones -->
+        <Switch
+            android:id="@+id/swNotificaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recibir notificaciones" />
+
+        <!-- Spinner para la selección de idioma vinculado al array de recursos @array/idiomas -->
+        <Spinner
+            android:id="@+id/spIdioma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:entries="@array/idiomas" />
+
+        <!-- Grupo de botones de opción única para definir la unidad de temperatura -->
+        <RadioGroup
+            android:id="@+id/rgUnidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+            <!-- Botón de opción para seleccionar Celsius, activado por defecto -->
+            <RadioButton
+                android:id="@+id/rbCelsius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Celsius"
+                android:checked="true" />
+
+            <!-- Botón de opción para seleccionar Fahrenheit -->
+            <RadioButton
+                android:id="@+id/rbFahrenheit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fahrenheit" />
+
+        </RadioGroup>
+
+        <!-- Barra de progreso pequeña inicialmente oculta para simular el guardado -->
+        <ProgressBar
+            android:id="@+id/pbGuardando"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <!-- Botón para confirmar y guardar la preferencia seleccionada -->
+        <Button
+            android:id="@+id/btnGuardarPreferencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:onClick="onGuardarPreferenciaClick"
+            android:text="Guardar" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
