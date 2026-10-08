@@ -1,7 +1,30 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme.MyApp"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/navy_primary</item>
+        <item name="colorSecondary">@color/blue_accent_light</item>
+        <item name="colorOnSecondary">@color/navy_primary</item>
+
+        <!-- Fondo de las pantallas en modo oscuro -->
+        <item name="android:windowBackground">@color/navy_primary</item>
+
+        <!-- Fondo al arrancar la aplicación -->
+        <item name="android:windowSplashScreenBackground">#0B1F3A</item>
+
+        <item name="colorSurface">@color/navy_card</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOutline">@color/navy_border</item>
+        <item name="colorOutlineVariant">@color/navy_border</item>
+
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">#D9E3F0</item>
+
     </style>
+
+    <style name="Theme.MyApp" parent="Base.Theme.MyApp" />
+
 </resources>

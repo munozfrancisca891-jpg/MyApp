@@ -1,79 +1,285 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Pantalla de Registros de Iluminación - Control de Luz -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/logo_inacap"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-    <TextView
-        android:id="@+id/txtTitulo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Iniciar sesión"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/imgLogo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-    <EditText
-        android:id="@+id/edtUsuario"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="Usuario"
-        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp" />
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/edtUsuario"
-        app:layout_constraintStart_toStartOf="@id/edtUsuario"
-        app:layout_constraintEnd_toEndOf="@id/edtUsuario" />
-    <CheckBox
-        android:id="@+id/chkGuardarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Guardar sesión"
-        app:layout_constraintTop_toBottomOf="@id/edtPassword"
-        app:layout_constraintStart_toStartOf="@id/edtPassword" />
-    <Button
-        android:id="@+id/btnIniciarSesion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Iniciar sesión"
-        app:layout_constraintTop_toBottomOf="@id/chkGuardarSesion"
-        app:layout_constraintStart_toStartOf="@id/edtPassword"
-        app:layout_constraintEnd_toEndOf="@id/edtPassword" />
-    <Button
-        android:id="@+id/btnLimpiar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Limpiar"
-        app:layout_constraintTop_toBottomOf="@id/btnIniciarSesion"
-        app:layout_constraintStart_toStartOf="@id/edtPassword"
-        app:layout_constraintEnd_toEndOf="@id/edtPassword" />
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="40dp">
 
+        <!-- ENCABEZADO -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Registros de Iluminación"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_marginBottom="4dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvSubtituloUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Lecturas de sensor LDR y estado de dormitorios"
+            android:textSize="14sp"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginBottom="24dp" />
+
+        <!-- TÍTULO DEL FORMULARIO -->
+        <TextView
+            android:id="@+id/tvTituloFormulario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuevo registro"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <!-- TARJETA FORMULARIO: REGISTRAR / EDITAR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="28dp">
+
+            <!-- DORMITORIO: SPINNER -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dormitorio:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:layout_marginBottom="4dp" />
+
+            <Spinner
+                android:id="@+id/spDormitorioRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:entries="@array/dormitorios"
+                android:layout_marginBottom="14dp" />
+
+            <!-- NIVEL DE ILUMINACIÓN (NUMÉRICO / LDR) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nivel de iluminación (LDR, 0–1023):"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/etNivelIluminacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ej: 650  (rango válido: 0–1023)"
+                android:inputType="number"
+                android:textColor="?attr/colorOnSurface"
+                android:padding="12dp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- ESTADO ENCENDIDA / APAGADA -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado de la luz:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:layout_marginBottom="6dp" />
+
+            <RadioGroup
+                android:id="@+id/rgEstadoLuz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="14dp">
+
+                <RadioButton
+                    android:id="@+id/rbEncendida"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Encendida"
+                    android:textSize="15sp"
+                    android:textColor="?attr/colorOnSurface" />
+
+                <RadioButton
+                    android:id="@+id/rbApagada"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Apagada"
+                    android:checked="true"
+                    android:textSize="15sp"
+                    android:textColor="?attr/colorOnSurface" />
+
+            </RadioGroup>
+
+            <!-- FECHA: botón que abre DatePickerDialog -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvFechaSeleccionada"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="15sp"
+                android:background="?attr/editTextBackground"
+                android:layout_marginBottom="4dp"
+                android:focusable="false"
+                android:clickable="true"
+                android:hint="Toca para elegir fecha" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSeleccionarFecha"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="📅 Elegir fecha"
+                android:textAllCaps="false"
+                android:textSize="13sp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- HORA: botón que abre TimePickerDialog -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hora:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvHoraSeleccionada"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="15sp"
+                android:background="?attr/editTextBackground"
+                android:layout_marginBottom="4dp"
+                android:focusable="false"
+                android:clickable="true"
+                android:hint="Toca para elegir hora" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSeleccionarHora"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="⏰ Elegir hora"
+                android:textAllCaps="false"
+                android:textSize="13sp"
+                android:layout_marginBottom="18dp" />
+
+            <!-- BOTÓN GUARDAR REGISTRO -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuardarRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Guardar registro"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="27dp" />
+
+            <!-- BOTÓN CANCELAR EDICIÓN (visible solo en modo edición) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelarEdicion"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Cancelar edición"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:visibility="gone"
+                android:layout_marginTop="6dp" />
+
+        </LinearLayout>
+
+        <!-- SECCIÓN: HISTORIAL EN TIEMPO REAL -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Historial en tiempo real (registrosLuz)"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="26dp">
+
+            <TextView
+                android:id="@+id/tvSinRegistros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cargando registros..."
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="?attr/colorOnSurface"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp" />
+
+            <!-- Contenedor dinámico de tarjetas -->
+            <LinearLayout
+                android:id="@+id/layoutListaRegistros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+        <!-- BOTÓN VOLVER -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVolverMain"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Volver a Bienvenida"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="27dp" />
+
+    </LinearLayout>
+
+</ScrollView>

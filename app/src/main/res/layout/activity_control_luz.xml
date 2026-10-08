@@ -1,0 +1,103 @@
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#102657">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Control de Luz"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Controla la luz de tu dormitorio"
+            android:textSize="16sp"
+            android:textColor="#D5E3FF"
+            android:gravity="center"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/txtAmpolleta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💡"
+            android:textSize="85sp"
+            android:gravity="center"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado de la luz"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/txtEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APAGADA"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#D5E3FF"
+            android:gravity="center"
+            android:layout_marginTop="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp">
+
+            <Button
+                android:id="@+id/btnEncender"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="Encender"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2EAD60"/>
+
+            <Button
+                android:id="@+id/btnApagar"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Apagar"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#D84343"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="35dp"
+            android:text="Volver al inicio"
+            android:textColor="#173B7B"
+            android:backgroundTint="#FFFFFF"/>
+
+    </LinearLayout>
+
+</ScrollView>

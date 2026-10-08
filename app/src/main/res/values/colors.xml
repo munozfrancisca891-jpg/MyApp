@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Colores institucionales de Control de Luz -->
+    <color name="navy_primary">#0B1F3A</color>
+    <color name="navy_secondary">#16335C</color>
+    <color name="navy_card">#132B4D</color>
+    <color name="navy_border">#234675</color>
+    
+    <!-- Colores para modo claro -->
+    <color name="light_bg">#F4F7FB</color>
+    <color name="light_card">#FFFFFF</color>
+    <color name="light_border">#D9E2EC</color>
+    
+    <!-- Acentos -->
+    <color name="blue_accent">#2563EB</color>
+    <color name="blue_accent_light">#60A5FA</color>
 </resources>

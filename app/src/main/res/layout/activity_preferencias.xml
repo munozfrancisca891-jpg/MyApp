@@ -1,98 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Contenedor principal de tipo ConstraintLayout para la pantalla de Preferencias -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Pantalla de Preferencias de la aplicación Control de Luz -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".PreferenciasActivity">
 
-    <!-- Título de la pantalla centrado horizontalmente en la parte superior -->
-    <TextView
-        android:id="@+id/txtTituloPreferencias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Preferencias"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- LinearLayout con orientación vertical y ancho completo posicionado debajo del título -->
     <LinearLayout
         android:id="@+id/linearLayoutPreferencias"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtTituloPreferencias">
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="36dp">
 
-        <!-- Switch con id swNotificaciones para activar o desactivar la opción de recibir notificaciones -->
-        <Switch
-            android:id="@+id/swNotificaciones"
+        <!-- TÍTULO DE LA PANTALLA -->
+        <TextView
+            android:id="@+id/txtTituloPreferencias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Preferencias"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_marginBottom="28dp" />
+
+        <!-- SECCIÓN 1: ALERTAS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alertas y Notificaciones"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recibir notificaciones" />
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="24dp">
 
-        <!-- Spinner para la selección de idioma vinculado al array de recursos @array/idiomas -->
-        <Spinner
-            android:id="@+id/spIdioma"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:entries="@array/idiomas" />
-
-        <!-- Grupo de botones de opción única para definir la unidad de temperatura -->
-        <RadioGroup
-            android:id="@+id/rgUnidad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical">
-
-            <!-- Botón de opción para seleccionar Celsius, activado por defecto -->
-            <RadioButton
-                android:id="@+id/rbCelsius"
-                android:layout_width="wrap_content"
+            <!-- Switch para activar o desactivar alertas de luz encendida -->
+            <Switch
+                android:id="@+id/swAlertasLuz"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Celsius"
-                android:checked="true" />
+                android:text="Recibir alertas de luz encendida"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnSurface" />
 
-            <!-- Botón de opción para seleccionar Fahrenheit -->
-            <RadioButton
-                android:id="@+id/rbFahrenheit"
-                android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <!-- SECCIÓN 2: DORMITORIO -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selector de Dormitorio"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="24dp">
+
+            <!-- Selector desplegable de dormitorios -->
+            <Spinner
+                android:id="@+id/spDormitorio"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:entries="@array/dormitorios" />
+
+        </LinearLayout>
+
+        <!-- SECCIÓN 3: APARIENCIA / TEMA -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tema de la Aplicación"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="28dp">
+
+            <!-- Selección mutuamente excluyente de tema claro u oscuro -->
+            <RadioGroup
+                android:id="@+id/rgTema"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fahrenheit" />
+                android:orientation="vertical">
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/rbTemaClaro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tema claro"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:paddingStart="8dp"
+                    android:layout_marginBottom="8dp" />
 
-        <!-- Barra de progreso pequeña inicialmente oculta para simular el guardado -->
+                <RadioButton
+                    android:id="@+id/rbTemaOscuro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tema oscuro"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:paddingStart="8dp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <!-- BARRA DE PROGRESO DE GUARDADO -->
         <ProgressBar
             android:id="@+id/pbGuardando"
             style="?android:attr/progressBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
             android:visibility="gone" />
 
-        <!-- Botón para confirmar y guardar la preferencia seleccionada -->
-        <Button
+        <!-- BOTÓN GUARDAR -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGuardarPreferencia"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_height="56dp"
+            android:text="Guardar"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
             android:onClick="onGuardarPreferenciaClick"
-            android:text="Guardar" />
+            android:layout_marginBottom="12dp" />
+
+        <!-- BOTÓN VOLVER -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVolverPreferencias"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Volver"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp" />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

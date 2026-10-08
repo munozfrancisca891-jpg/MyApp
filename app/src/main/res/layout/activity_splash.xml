@@ -1,0 +1,64 @@
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#0B1F3A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Imagen circular del proyecto -->
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/fondo_circular"
+            android:clipToOutline="true"
+            android:clipChildren="true">
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:src="@drawable/dormitorio_login"
+                android:scaleType="centerCrop"
+                android:contentDescription="Dormitorio iluminado" />
+
+        </FrameLayout>
+
+        <!-- Nombre de la aplicación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Control de Luz"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Frase de presentación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ilumina y controla tu espacio"
+            android:textSize="17sp"
+            android:textColor="#D9E3F0"
+            android:gravity="center"
+            android:layout_marginBottom="30dp" />
+
+        <!-- Indicador de carga -->
+        <ProgressBar
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:indeterminateTint="#FFFFFF" />
+
+    </LinearLayout>
+
+</ScrollView>

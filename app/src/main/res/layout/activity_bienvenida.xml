@@ -1,35 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#0B1F3A"
     tools:context=".BienvenidaActivity">
 
-    <TextView
-        android:id="@+id/txtBienvenida"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¡Bienvenido!"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/btnPreferencias"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp">
 
-    <Button
-        android:id="@+id/btnPreferencias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Preferencias"
-        android:onClick="onPreferenciasClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtBienvenida" />
+        <!-- Imagen circular igual a la del Login -->
+        <FrameLayout
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/fondo_circular"
+            android:clipToOutline="true"
+            android:clipChildren="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imgLogoBienvenida"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:src="@drawable/dormitorio_login"
+                android:scaleType="centerCrop"
+                android:contentDescription="Dormitorio iluminado" />
+
+        </FrameLayout>
+
+        <!-- Nombre de la aplicación -->
+        <TextView
+            android:id="@+id/txtTituloApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Control de Luz"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Bienvenida personalizada -->
+        <TextView
+            android:id="@+id/txtBienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bienvenido/a"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="18dp" />
+
+        <!-- Descripción de la aplicación -->
+        <TextView
+            android:id="@+id/txtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Controla, registra y consulta el estado de la luz de tu dormitorio"
+            android:textSize="15sp"
+            android:textColor="#D9E3F0"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginBottom="36dp" />
+
+        <!-- Botón para controlar la luz -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnControlarLuz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
+            android:text="Controlar luz"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#0B1F3A"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="28dp" />
+
+        <!-- Botón de registros de iluminación -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegistrosIluminacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
+            android:text="Registros de iluminación"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#0B1F3A"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="28dp" />
+
+        <!-- Botón de preferencias -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPreferencias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
+            android:text="Preferencias"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#0B1F3A"
+            android:layout_marginBottom="24dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="28dp" />
+
+        <!-- Botón para cerrar sesión -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
+            android:text="Cerrar sesión"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#0B1F3A"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="2dp"
+            app:cornerRadius="28dp" />
+
+    </LinearLayout>
+
+</ScrollView>

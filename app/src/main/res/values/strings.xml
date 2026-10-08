@@ -1,11 +1,10 @@
 <resources>
-    <string name="app_name">My App</string>
+    <string name="app_name">Control de Luz</string>
 
-    <!-- Array de cadenas que define las opciones de idioma disponibles en la aplicación -->
-    <string-array name="idiomas">
-        <!-- Elemento de lista para seleccionar el idioma Español -->
-        <item>Español</item>
-        <!-- Elemento de lista para seleccionar el idioma Inglés -->
-        <item>Inglés</item>
+    <!-- Opciones del selector de dormitorio -->
+    <string-array name="dormitorios">
+        <item>Dormitorio principal</item>
+        <item>Dormitorio secundario</item>
+        <item>Dormitorio de visitas</item>
     </string-array>
 </resources>

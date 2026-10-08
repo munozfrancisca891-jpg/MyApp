@@ -1,9 +1,30 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme.MyApp"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/navy_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/navy_secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Fondo de las pantallas -->
+        <item name="android:windowBackground">@color/light_bg</item>
+
+        <!-- Fondo al arrancar la aplicación -->
+        <item name="android:windowSplashScreenBackground">#0B1F3A</item>
+
+        <item name="colorSurface">@color/light_card</item>
+        <item name="colorOnSurface">@color/navy_primary</item>
+        <item name="colorOutline">@color/light_border</item>
+        <item name="colorOutlineVariant">@color/light_border</item>
+
+        <item name="android:textColorPrimary">@color/navy_primary</item>
+        <item name="android:textColorSecondary">@color/navy_secondary</item>
+
     </style>
 
     <style name="Theme.MyApp" parent="Base.Theme.MyApp" />
+
 </resources>
